@@ -4,11 +4,10 @@
       <h1>账号登录</h1>
       <form>
         <input v-model="loginName" placeholder="请输入用户名"/>
-        <input v-model="password" placeholder="请输入密码"/>
+        <input type="password" v-model="password" placeholder="请输入密码"/>
         <button @click='sendLogin'>登录</button>
       </form>
-      <p>username is: {{ loginName }}</p>
-      <p>password is: {{ password }}</p>
+      <el-dialog :visible.sync ="showMsg" width = 30% :modal-append-to-body = "false">{{message}}</el-dialog>
     </div>
     <ul>
       <li></li>
@@ -31,22 +30,25 @@ export default {
   data () {
     return {
       loginName: '',
-      password: ''
+      password: '',
+      message: '',
+      showMsg: false
     }
   },
   methods: {
     sendLogin () {
-      var userData = JSON.stringify({
-        'loginName': this.loginName,
-        'password': this.password
-      })
-      let config = {
-        headers: {
-          'Content-Type': 'application/json'
+      axios.get('/rest/login', {
+        params: {
+          loginName: this.loginName,
+          password: this.password
         }
-      }
-      axios.get('/rest/login', userData, config).then(res => {
-        console.log(res)
+      }).then(res => {
+        if (res.data === 'success') {
+          this.message = '欢迎你'
+        } else {
+          this.showMsg = true
+          this.message = '账号密码错误！'
+        }
       }).catch(res => {
         console.log(res)
       })
