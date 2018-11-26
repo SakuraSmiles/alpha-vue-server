@@ -1,20 +1,24 @@
 <template>
   <div id="app">
-    <login></login>
+    <Index></Index>
   </div>
 </template>
 
 <script>
 // 导入组件
 import Login from './components/Login'
+import Index from './components/Index'
 export default {
   name: 'app',
   components: {
-    Login
+    Login,
+    Index
   }
 }
 </script>
 
-<style>
+<style scoped>
+app{
 
+}
 </style>

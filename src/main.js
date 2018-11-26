@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
+import Icon from '../node_modules/vue-svg-icon/Icon.vue'
 Vue.use(ElementUI)
+Vue.component('icon', Icon)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
