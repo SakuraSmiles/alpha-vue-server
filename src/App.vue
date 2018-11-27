@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Index></Index>
+    <Login v-bind:show-login="false"></Login>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ export default {
     Index
   }
 }
+
 </script>
 
 <style scoped>

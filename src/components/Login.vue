@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login" v-if="showLogin">
     <div class="container">
       <h1>账号登录</h1>
       <form>
@@ -25,10 +25,12 @@
 </template>
 <script>
 import axios from 'axios'
+import bus from './EventBus'
 export default {
   name: 'Login',
   data () {
     return {
+      showLogin: false,
       loginName: '',
       password: '',
       message: '',
@@ -36,7 +38,12 @@ export default {
     }
   },
   methods: {
-    sendLogin () {
+    mounted () {
+      bus.$on('initLoginType', function (loginType) {
+        this.showLogin = loginType
+      })
+    },
+    sendLogin: function () {
       axios.get('/rest/login', {
         params: {
           loginName: this.loginName,
@@ -44,7 +51,8 @@ export default {
         }
       }).then(res => {
         if (res.data === 'success') {
-          this.message = '欢迎你'
+          this.closeLoginDiv()
+          this.GLOBAL.isLogined()
         } else {
           this.showMsg = true
           this.message = '账号密码错误！'
