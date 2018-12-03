@@ -1,0 +1,118 @@
+.toolbar{
+  position: fixed;
+  right:4%;
+  top:230px;
+  width:100px;
+  height: 500px;
+  /*border:1px solid black;*/
+  transform-style:preserve-3d;
+  transform:rotateX(-15deg) rotateY(-20deg) rotateZ(0deg);
+  transition-duration:0.8s;
+}
+.toolbarOpen{
+  text-align: center;
+  -webkit-perspective: 300px;
+  perspective:300px;
+  position: fixed;
+  right:4%;
+  top:230px;
+  width:100px;
+  height: 500px;
+  /*border:1px solid black;*/
+  transform-style:preserve-3d;
+  transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transition-duration:0.8s;
+}
+.toolbar div{
+  width:50px;
+  height:50px;
+  border:1px solid #45080e;
+  position:absolute;
+  margin:auto;
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: #e8e8e8;
+}
+.toolbarOpen div{
+  width:50px;
+  height:50px;
+  border:1px solid #45080e;
+  position:absolute;
+  margin:auto;
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: #e8e8e8;
+}
+.one{
+  transform:rotateY(0) translateZ(26px);
+  transition-duration:1.2s;
+  background-color: #e8e8e8 !important;
+}
+.two{
+  transform:rotateY(90deg) translateZ(26px);
+  transition-duration:1.2s;
+}
+.three{
+  transform:rotateY(180deg) translateZ(26px);
+  transition-duration:1.2s;
+}
+.four{
+  transform:rotateY(270deg) translateZ(26px);
+  transition-duration:1.2s;
+}
+.five{
+  transform:rotateX(90deg) translateZ(26px);
+  transition-duration:1.2s;
+}
+.six{
+  transform:rotateX(90deg) translateZ(-26px);
+  transition-duration:1.2s;
+}
+.oneAfter{
+  transform:rotateY(0) translateZ(36px) scaleX(1.4) scaleY(1.4);
+  transition-duration:0.8s;
+}
+.twoAfter{
+  transform:rotateY(90deg) translateZ(36px) scaleX(1.4) scaleY(1.4);
+  transition-duration:0.8s;
+}
+.threeAfter{
+  transform:rotateY(180deg) translateZ(36px) scaleX(1.4) scaleY(1.4);
+  transition-duration:0.8s;
+}
+.fourAfter{
+  transform:rotateY(270deg) translateZ(36px) scaleX(1.4) scaleY(1.4);
+  transition-duration:0.8s;
+}
+.fiveAfter{
+  transform:rotateX(90deg) translateZ(36px) scaleX(1.4) scaleY(1.4);
+  transition-duration:0.8s;
+}
+.sixAfter{
+  transform:rotateX(90deg) translateZ(-36px) scaleX(1.4) scaleY(1.4);
+  transition-duration:0.8s;
+}
+.oneOpen{
+  transform:rotateX(0deg) rotateY(0deg) translateY(0px);
+  transition-duration:0.8s;
+}
+.twoOpen{
+  transform:rotateX(0deg) rotateY(0deg) translateY(55px);
+  transition-duration:0.8s;
+}
+.threeOpen{
+  transform:rotateX(0deg) rotateY(0deg) translateY(110px);
+  transition-duration:0.8s;
+}
+.fourOpen{
+  transform:rotateX(0deg) rotateY(0deg) translateY(165px);
+  transition-duration:0.8s;
+}
+.fiveOpen{
+  transform:rotateX(0deg) rotateY(0deg) translateY(220px);
+  transition-duration:0.8s;
+}
+.sixOpen{
+  transform:rotateX(0deg) rotateY(0deg) translateY(275px);
+  transition-duration:0.8s;
+}

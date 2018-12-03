@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <Index></Index>
-    <Login v-bind:show-login="false"></Login>
+    <Login></Login>
   </div>
 </template>
 
 <script>
 // 导入组件
-import Login from './components/Login'
+import Login from './components/common/Login'
 import Index from './components/Index'
 export default {
   name: 'app',

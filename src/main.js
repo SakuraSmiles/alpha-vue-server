@@ -6,12 +6,10 @@ import router from './router'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 import Icon from '../node_modules/vue-svg-icon/Icon.vue'
 import ElementUI from 'element-ui'
-import global_ from './components/Global'
+import store from './store'
 
 /* 使用element-ui */
 Vue.use(ElementUI)
-/* 全局指令或者全局变量 */
-Vue.prototype.GLOBAL = global_
 /* 使用icon图标 */
 Vue.component('icon', Icon)
 Vue.config.productionTip = false
@@ -20,6 +18,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -25,24 +25,22 @@
 </template>
 <script>
 import axios from 'axios'
-import bus from './EventBus'
 export default {
   name: 'Login',
   data () {
     return {
-      showLogin: false,
       loginName: '',
       password: '',
       message: '',
       showMsg: false
     }
   },
+  computed: {
+    showLogin () {
+      return this.$store.state.user.isShowLogin
+    }
+  },
   methods: {
-    mounted () {
-      bus.$on('initLoginType', function (loginType) {
-        this.showLogin = loginType
-      })
-    },
     sendLogin: function () {
       axios.get('/rest/login', {
         params: {
@@ -51,8 +49,8 @@ export default {
         }
       }).then(res => {
         if (res.data === 'success') {
-          this.closeLoginDiv()
-          this.GLOBAL.isLogined()
+          this.$store.commit('hiddenLoginDialog')
+          this.$store.commit('login')
         } else {
           this.showMsg = true
           this.message = '账号密码错误！'
@@ -65,5 +63,5 @@ export default {
 }
 </script>
 <style scoped>
-  @import '../assets/css/login.css';
+  @import '../../assets/css/login.css';
 </style>
